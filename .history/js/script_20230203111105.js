@@ -114,9 +114,15 @@ if(kittenOneDesc.includes (descSearchText)) {
   dataList.innerHTML = kittenOne;
   }
 
-if(kittenTwoDesc.includes (descSearchText)) {
+if(kittenTwoDesc.includes ("Produce fascinación y curiosidad. Exótico, raro, bello, extraño… hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.")) {
   dataList.innerHTML += kittenTwo;
 }
-if(kittenThree.includes (descSearchText)) {
+if(kittenThree.includes ("Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.")) {
   dataList.innerHTML += kittenThree;
 }
+/*else {
+  dataList.innerHTML = kittenOne;
+  dataList.innerHTML += kittenTwo;
+  dataList.innerHTML += kittenThree;
+  
+}*/

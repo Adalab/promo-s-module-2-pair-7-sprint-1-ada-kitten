@@ -120,3 +120,9 @@ if(kittenTwoDesc.includes (descSearchText)) {
 if(kittenThree.includes (descSearchText)) {
   dataList.innerHTML += kittenThree;
 }
+/*else {
+  dataList.innerHTML = kittenOne;
+  dataList.innerHTML += kittenTwo;
+  dataList.innerHTML += kittenThree;
+  
+}*/

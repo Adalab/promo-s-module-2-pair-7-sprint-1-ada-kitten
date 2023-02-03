@@ -37,41 +37,10 @@ const kittenOne = `<li class="card">
 </article>
 </li>`;
 
+dataList.innerHTML = kittenOne;
+
+
 const kittenTwo = `<li class="card">
-<article>
-  <img
-    class="card_img"
-    src= ${kittenTwoImage}
-    alt="gatito"
-  />
-  <h3 class="card_title">${kittenTwoName.toUpperCase()}</h3>
-  <h4 class="card_race">${kittenTwoRace}</h4>
-  <p class="card_description">
-  ${kittenTwoDesc}
-   </p>
-</article>
-</li>`;
-
-const kittenThree = `<li class="card">
-<article>
-  <img
-    class="card_img"
-    src= ${kittenThreeImage}
-    alt="gatito"
-  />
-  <h3 class="card_title">${kittenThreeName.toUpperCase()}</h3>
-  <h4 class="card_race">${kittenThreeRace}</h4>
-  <p class="card_description">
-  ${kittenThreeDesc}
-   </p>
-</article>
-</li>`;
-
-/*dataList.innerHTML = kittenOne;
-
-
-
-/*const kittenTwo = `<li class="card">
             <img
               class="card_img"
               src="https://dev.adalab.es/sphynx-gato.webp"
@@ -84,11 +53,11 @@ const kittenThree = `<li class="card">
               hasta con pinta de alienígena han llegado a definir a esta raza
               gatuna que se caracteriza por la «ausencia» de pelo.
             </p>
-          </li>`*/
+          </li>`
 
-/*dataList.innerHTML += kittenTwo;*/
+dataList.innerHTML += kittenTwo;
 
-/*const kittenThree = `<li class="card">
+const kittenThree = `<li class="card">
             <img
               class="card_img"
               src="https://dev.adalab.es/maine-coon-cat.webp"
@@ -101,22 +70,13 @@ const kittenThree = `<li class="card">
               bella mirada se ha convertido en una de sus señas de identidad.
               Sus ojos son grandes y las orejas resultan largas y en punta.
             </p>
-          </li>`*/
+          </li>`
 
 
 
-/*dataList.innerHTML += kittenThree;*/
+dataList.innerHTML += kittenThree;
 
 
 const input_search_desc = document.querySelector(".js_in_search_desc");
 const descSearchText = input_search_desc.value;
-if(kittenOneDesc.includes (descSearchText)) {
-  dataList.innerHTML = kittenOne;
-  }
-
-if(kittenTwoDesc.includes (descSearchText)) {
-  dataList.innerHTML += kittenTwo;
-}
-if(kittenThree.includes (descSearchText)) {
-  dataList.innerHTML += kittenThree;
-}
+if(kittenOneDesc.includes ())

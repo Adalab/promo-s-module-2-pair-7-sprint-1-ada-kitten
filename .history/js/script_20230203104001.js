@@ -67,11 +67,10 @@ const kittenThree = `<li class="card">
 </article>
 </li>`;
 
-/*dataList.innerHTML = kittenOne;
+dataList.innerHTML = kittenOne;
 
 
-
-/*const kittenTwo = `<li class="card">
+const kittenTwo = `<li class="card">
             <img
               class="card_img"
               src="https://dev.adalab.es/sphynx-gato.webp"
@@ -84,11 +83,11 @@ const kittenThree = `<li class="card">
               hasta con pinta de alienígena han llegado a definir a esta raza
               gatuna que se caracteriza por la «ausencia» de pelo.
             </p>
-          </li>`*/
+          </li>`
 
-/*dataList.innerHTML += kittenTwo;*/
+dataList.innerHTML += kittenTwo;
 
-/*const kittenThree = `<li class="card">
+const kittenThree = `<li class="card">
             <img
               class="card_img"
               src="https://dev.adalab.es/maine-coon-cat.webp"
@@ -101,22 +100,15 @@ const kittenThree = `<li class="card">
               bella mirada se ha convertido en una de sus señas de identidad.
               Sus ojos son grandes y las orejas resultan largas y en punta.
             </p>
-          </li>`*/
+          </li>`
 
 
 
-/*dataList.innerHTML += kittenThree;*/
+dataList.innerHTML += kittenThree;
 
 
 const input_search_desc = document.querySelector(".js_in_search_desc");
 const descSearchText = input_search_desc.value;
-if(kittenOneDesc.includes (descSearchText)) {
+if(kittenOneDesc.includes ("Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.")) {
   dataList.innerHTML = kittenOne;
   }
-
-if(kittenTwoDesc.includes (descSearchText)) {
-  dataList.innerHTML += kittenTwo;
-}
-if(kittenThree.includes (descSearchText)) {
-  dataList.innerHTML += kittenThree;
-}
