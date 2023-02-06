@@ -120,3 +120,52 @@ if(kittenTwoDesc.includes (descSearchText)) {
 if(kittenThree.includes (descSearchText)) {
   dataList.innerHTML += kittenThree;
 }
+
+
+const newform = document.querySelector(".js-new-form");
+const plus = document.querySelector(".js-fas");
+
+
+plus.addEventListener('click', (event) => {
+  if (newform.classList.contains('collapsed')) {
+  newform.classList.remove("collapsed");
+} else {
+  newform.classList.add("collapsed"); 
+
+}});
+
+
+const addbtn = document.querySelector(".js-btn-add");
+const inputDesc = document.querySelector('.js-input-desc');
+const inputPhoto = document.querySelector('.js-input-photo');
+const inputName = document.querySelector('.js-input-name');
+const labelMessageError = document.querySelector('.js-label-error');
+
+const valueDesc = inputDesc.value;
+const valuePhoto = inputPhoto.value;
+const valueName = inputName.value;
+
+addbtn.addEventListener('click', (event) => {
+
+if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+  labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo";
+} else {
+  
+const kittenNew = `<li class="card">
+<article>
+  <img
+    class="card_img"
+    src= ${valuePhoto}
+    alt="gatito"
+  />
+  <h3 class="card_title">${valueName.toUpperCase()}</h3>
+  <p class="card_description">
+  ${valueDesc}
+   </p>
+</article>
+</li>`; 
+
+dataList.innerHTML += `<li>${kittenNew}</li>`;
+}
+
+});
