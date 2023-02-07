@@ -126,76 +126,35 @@ const newform = document.querySelector(".js-new-form");
 const plus = document.querySelector(".js-fas");
 
 
-/*plus.addEventListener('click', (event) => {
+plus.addEventListener('click', (event) => {
   if (newform.classList.contains('collapsed')) {
   newform.classList.remove("collapsed");
 } else {
   newform.classList.add("collapsed"); 
 
-}});*/
-plus.addEventListener('click', handleClickNewCatForm);
-
-function showNewCatForm() {
-  newFormElement.classList.remove('collapsed');
-}
-function hideNewCatForm() {
-  newFormElement.classList.add('collapsed');
-}
-
-function handleClickNewCatForm(event) {
-  event.preventDefault();
-  if (newform.classList.contains('collapsed')) {
-    newform.classList.remove('collapsed');
-  } else {
-    newform.classList.add('collapsed');
-  }
-}
-
-
+}});
 
 
 const addbtn = document.querySelector(".js-btn-add");
 const inputDesc = document.querySelector('.js-input-desc');
 const inputPhoto = document.querySelector('.js-input-photo');
 const inputName = document.querySelector('.js-input-name');
-const inputRace = document.querySelector('.js-input-race');
 const labelMessageError = document.querySelector('.js-label-error');
 
-function renderKitten() {
-  
-  const kittenNew = `<li class="card">
-<article>
-  <img
-    class="card_img"
-    src= ${valuePhoto}
-    alt="gatito"
-  />
-  <h3 class="card_title">${valueName.toUpperCase()}</h3>
-  <p class="card_description">
-  ${valueDesc}
-   </p>
-</article>
-</li>`;
-}
 
-addbtn.addEventListener('click', addNewKitten);
-
-
-function addNewKitten(event) {
-  event.preventDefault()
-
+addbtn.addEventListener('click', (event) => {
+event.preventDefault()
 
 const valueDesc = inputDesc.value;
 const valuePhoto = inputPhoto.value;
 const valueName = inputName.value;
-const valueRace = inputRace.value;
 
 if (valueDesc === '' || valuePhoto === '' || valueName === '') {
   console.log(valueDesc)
 ;  labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo";
 } else {
-  renderKitten();
-/*const kittenNew = `<li class="card">
+  
+const kittenNew = `<li class="card">
 <article>
   <img
     class="card_img"
@@ -207,15 +166,12 @@ if (valueDesc === '' || valuePhoto === '' || valueName === '') {
   ${valueDesc}
    </p>
 </article>
-</li>`;*/
+</li>`; 
 
 dataList.innerHTML += `<li>${kittenNew}</li>`;
 
-inputDesc.value = '';
-inputName.value = '';
-inputPhoto.value = '';
-inputRace.value = '';
-newform.classList.add("collapsed"); 
-}
+inputDesc.value = ''
 }
 
+
+});

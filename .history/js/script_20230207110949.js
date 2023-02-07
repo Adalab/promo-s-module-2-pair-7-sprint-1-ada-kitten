@@ -162,7 +162,10 @@ const inputRace = document.querySelector('.js-input-race');
 const labelMessageError = document.querySelector('.js-label-error');
 
 function renderKitten() {
-  
+  const valueDesc = inputDesc.value;
+  const valuePhoto = inputPhoto.value;
+  const valueName = inputName.value;
+  const valueRace = inputRace.value;
   const kittenNew = `<li class="card">
 <article>
   <img
@@ -185,16 +188,16 @@ function addNewKitten(event) {
   event.preventDefault()
 
 
-const valueDesc = inputDesc.value;
+/*const valueDesc = inputDesc.value;
 const valuePhoto = inputPhoto.value;
 const valueName = inputName.value;
-const valueRace = inputRace.value;
+const valueRace = inputRace.value;*/
 
 if (valueDesc === '' || valuePhoto === '' || valueName === '') {
   console.log(valueDesc)
 ;  labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo";
 } else {
-  renderKitten();
+  
 /*const kittenNew = `<li class="card">
 <article>
   <img

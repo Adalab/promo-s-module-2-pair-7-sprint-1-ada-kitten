@@ -145,7 +145,7 @@ function hideNewCatForm() {
 function handleClickNewCatForm(event) {
   event.preventDefault();
   if (newform.classList.contains('collapsed')) {
-    newform.classList.remove('collapsed');
+    newFormElement.classList.remove('collapsed');
   } else {
     newform.classList.add('collapsed');
   }
@@ -161,29 +161,9 @@ const inputName = document.querySelector('.js-input-name');
 const inputRace = document.querySelector('.js-input-race');
 const labelMessageError = document.querySelector('.js-label-error');
 
-function renderKitten() {
-  
-  const kittenNew = `<li class="card">
-<article>
-  <img
-    class="card_img"
-    src= ${valuePhoto}
-    alt="gatito"
-  />
-  <h3 class="card_title">${valueName.toUpperCase()}</h3>
-  <p class="card_description">
-  ${valueDesc}
-   </p>
-</article>
-</li>`;
-}
 
-addbtn.addEventListener('click', addNewKitten);
-
-
-function addNewKitten(event) {
-  event.preventDefault()
-
+addbtn.addEventListener('click', (event) => {
+event.preventDefault()
 
 const valueDesc = inputDesc.value;
 const valuePhoto = inputPhoto.value;
@@ -194,8 +174,8 @@ if (valueDesc === '' || valuePhoto === '' || valueName === '') {
   console.log(valueDesc)
 ;  labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo";
 } else {
-  renderKitten();
-/*const kittenNew = `<li class="card">
+  
+const kittenNew = `<li class="card">
 <article>
   <img
     class="card_img"
@@ -207,7 +187,7 @@ if (valueDesc === '' || valuePhoto === '' || valueName === '') {
   ${valueDesc}
    </p>
 </article>
-</li>`;*/
+</li>`; 
 
 dataList.innerHTML += `<li>${kittenNew}</li>`;
 
@@ -217,5 +197,6 @@ inputPhoto.value = '';
 inputRace.value = '';
 newform.classList.add("collapsed"); 
 }
-}
 
+
+});

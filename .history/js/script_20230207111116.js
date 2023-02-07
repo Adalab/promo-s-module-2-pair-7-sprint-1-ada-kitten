@@ -162,7 +162,10 @@ const inputRace = document.querySelector('.js-input-race');
 const labelMessageError = document.querySelector('.js-label-error');
 
 function renderKitten() {
-  
+  const valueDesc = inputDesc.value;
+  const valuePhoto = inputPhoto.value;
+  const valueName = inputName.value;
+  const valueRace = inputRace.value;
   const kittenNew = `<li class="card">
 <article>
   <img
