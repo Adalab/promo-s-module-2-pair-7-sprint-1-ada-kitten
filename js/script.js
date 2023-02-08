@@ -108,9 +108,8 @@ const kittenThree = `<li class="card">
 /*dataList.innerHTML += kittenThree;*/
 
 
-const input_search_desc = document.querySelector(".js_in_search_desc");
-const descSearchText = input_search_desc.value;
-if(kittenOneDesc.includes (descSearchText)) {
+
+/*if(kittenOneDesc.includes (descSearchText)) {
   dataList.innerHTML = kittenOne;
   }
 
@@ -119,7 +118,37 @@ if(kittenTwoDesc.includes (descSearchText)) {
 }
 if(kittenThree.includes (descSearchText)) {
   dataList.innerHTML += kittenThree;
-}
+} */
+
+
+
+const buttonSearch = document.querySelector(".js-button-search");
+
+
+const filterKitten = (event) => {
+event.preventDefault();
+const input_search_desc = document.querySelector(".js_in_search_desc");
+const descSearchText = input_search_desc.value;
+dataList.innerHTML="";
+  if (kittenOneDesc.includes(descSearchText)) {
+    dataList.innerHTML += kittenOne;
+    console.log("hola");
+  }
+  if (kittenTwoDesc.includes(descSearchText)) {
+    dataList.innerHTML += kittenTwo;
+  }
+  if (kittenThreeDesc.includes(descSearchText)) {
+    dataList.innerHTML += kittenThree;
+  } 
+};
+
+dataList.innerHTML += kittenOne;
+dataList.innerHTML += kittenTwo;
+dataList.innerHTML += kittenThree;
+
+buttonSearch.addEventListener('click', filterKitten);
+
+
 
 
 const newform = document.querySelector(".js-new-form");
@@ -161,7 +190,7 @@ const inputName = document.querySelector('.js-input-name');
 const inputRace = document.querySelector('.js-input-race');
 const labelMessageError = document.querySelector('.js-label-error');
 
-function renderKitten() {
+function renderKitten(valueDesc,valueName,valuePhoto) {
   
   const kittenNew = `<li class="card">
 <article>
@@ -176,46 +205,50 @@ function renderKitten() {
    </p>
 </article>
 </li>`;
+
+dataList.innerHTML += `<li>${kittenNew}</li>`;
 }
+
+
 
 addbtn.addEventListener('click', addNewKitten);
 
-
 function addNewKitten(event) {
-  event.preventDefault()
+event.preventDefault()
 
 
 const valueDesc = inputDesc.value;
 const valuePhoto = inputPhoto.value;
 const valueName = inputName.value;
-const valueRace = inputRace.value;
+
 
 if (valueDesc === '' || valuePhoto === '' || valueName === '') {
   console.log(valueDesc)
 ;  labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo";
 } else {
-  renderKitten();
-/*const kittenNew = `<li class="card">
-<article>
-  <img
-    class="card_img"
-    src= ${valuePhoto}
-    alt="gatito"
-  />
-  <h3 class="card_title">${valueName.toUpperCase()}</h3>
-  <p class="card_description">
-  ${valueDesc}
-   </p>
-</article>
-</li>`;*/
 
-dataList.innerHTML += `<li>${kittenNew}</li>`;
+renderKitten(valueDesc,valueName,valuePhoto);
+
+
 
 inputDesc.value = '';
 inputName.value = '';
 inputPhoto.value = '';
-inputRace.value = '';
 newform.classList.add("collapsed"); 
-}
-}
 
+}
+};
+
+
+const buttonCancelForm = document.querySelector('.js-btn-cancel');
+
+const cancelNewKitten = (event) => {
+
+inputDesc.value = '';
+inputName.value = '';
+inputPhoto.value = '';
+newform.classList.add("collapsed"); 
+
+};
+
+buttonCancelForm.addEventListener('click', cancelNewKitten);
