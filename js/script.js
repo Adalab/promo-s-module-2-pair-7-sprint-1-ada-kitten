@@ -6,7 +6,7 @@ const newForm = document.querySelector('.js-new-form');
 
 const dataList = document.querySelector(".js-list");
 
-
+/* 
 const kittenOneImage = "https://dev.adalab.es/gato-siames.webp";
 const kittenOneName = "Anastacio";
 const kittenOneDesc = "Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.";
@@ -67,7 +67,7 @@ const kittenThree = `<li class="card">
 </article>
 </li>`;
 
-
+*/
 
 
 /*dataList.innerHTML = kittenOne;
@@ -124,9 +124,9 @@ if(kittenThree.includes (descSearchText)) {
 } */
 
 
+//INFO DE GATITOS
 
 
-const buttonSearch = document.querySelector(".js-button-search");
 
 const kittenData_1 = {
   image: 'https://dev.adalab.es/gato-siames.webp',
@@ -150,31 +150,39 @@ const kittenData_3 = {
   race: 'Maine Coon',
 };
 
+
+
+// FUNCION FILTAR GATITOS
+
+const buttonSearch = document.querySelector(".js-button-search");
+
+
 const filterKitten = (event) => {
 event.preventDefault();
 const input_search_desc = document.querySelector(".js_in_search_desc");
 const descSearchText = input_search_desc.value;
 dataList.innerHTML="";
   if (kittenData_1.desc.includes(descSearchText)) {
-    dataList.innerHTML += kittenData_1;
-    console.log("hola");
+    renderKitten(kittenData_1);
   }
   if (kittenData_2.desc.includes(descSearchText)) {
-    dataList.innerHTML += kittenData_2;
+    renderKitten(kittenData_2);
   }
   if (kittenData_3.desc.includes(descSearchText)) {
-    dataList.innerHTML += kittenData_3;
+    renderKitten(kittenData_3);
   } 
 };
-
 renderKitten(kittenData_1);
 renderKitten(kittenData_2);
 renderKitten(kittenData_3);
 
+// PINTA LOS GATITOS SI NO FILTRAS NADA
+
+
 buttonSearch.addEventListener('click', filterKitten);
 
 
-
+// FORM DE AÑADIR GATITO ABRIR CERRAR
 
 const newform = document.querySelector(".js-new-form");
 const plus = document.querySelector(".js-fas");
@@ -187,6 +195,8 @@ const plus = document.querySelector(".js-fas");
   newform.classList.add("collapsed"); 
 
 }});*/
+
+// EVENTO ABRIRCERRAR FORM
 plus.addEventListener('click', handleClickNewCatForm);
 
 function showNewCatForm() {
@@ -206,7 +216,7 @@ function handleClickNewCatForm(event) {
 }
 
 
-
+// FUNCION CREAR NUEVO GATITO EN 2 PARTES
 
 const addbtn = document.querySelector(".js-btn-add");
 const inputDesc = document.querySelector('.js-input-desc');
@@ -215,21 +225,19 @@ const inputName = document.querySelector('.js-input-name');
 const inputRace = document.querySelector('.js-input-race');
 const labelMessageError = document.querySelector('.js-label-error');
 
+// FUNCION CREAR GATO CON OBJETO
 
-
-
-
-function renderKitten(kittenData_1) {
+function renderKitten(kittenData) {
   const kittenNew = `<li class="card">
 <article>
   <img
     class="card_img"
-    src= ${kittenData_1.image}
+    src= ${kittenData.image}
     alt="gatito"
   />
-  <h3 class="card_title">${kittenData_1.name}</h3>
+  <h3 class="card_title">${kittenData.name}</h3>
   <p class="card_description">
-  ${kittenData_1.desc}
+  ${kittenData.desc}
    </p>
 </article>
 </li>`;
@@ -238,19 +246,17 @@ dataList.innerHTML += `<li>${kittenNew}</li>`;
 }
 
 
+// EVENTO CUANDO HACER CLICK A AÑADIR
 
 addbtn.addEventListener('click', addNewKitten);
 
 function addNewKitten(event) {
 event.preventDefault()
 
-
-const kittenNew = {
-  image: '',
-  name: '',
-  desc: '',
-  race: '',
-};
+const kittennuevo = {};
+kittennuevo.name = inputName.value;
+kittennuevo.image = inputPhoto.value;
+kittennuevo.desc = inputDesc.value;
 
 
 if (inputDesc.value === '' || inputPhoto.value === '' || inputName.value === '') {
@@ -258,8 +264,7 @@ if (inputDesc.value === '' || inputPhoto.value === '' || inputName.value === '')
 ;  labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo";
 } else {
 
-renderKitten(kittenNew);
-
+renderKitten(kittennuevo);
 
 
 inputDesc.value = '';
@@ -270,6 +275,7 @@ newform.classList.add("collapsed");
 }
 };
 
+// CANCELAR EL FORM
 
 const buttonCancelForm = document.querySelector('.js-btn-cancel');
 
@@ -283,3 +289,4 @@ newform.classList.add("collapsed");
 };
 
 buttonCancelForm.addEventListener('click', cancelNewKitten);
+
