@@ -167,9 +167,9 @@ dataList.innerHTML="";
   } 
 };
 
-renderKitten(kittenData_1);
-renderKitten(kittenData_2);
-renderKitten(kittenData_3);
+dataList.innerHTML += kittenData_1;
+dataList.innerHTML += kittenData_2;
+dataList.innerHTML += kittenData_3;
 
 buttonSearch.addEventListener('click', filterKitten);
 
@@ -236,7 +236,9 @@ function renderKitten(kittenData_1) {
 
 dataList.innerHTML += `<li>${kittenNew}</li>`;
 }
-
+renderKitten(kittenData_1);
+renderKitten(kittenData_2);
+renderKitten(kittenData_3);
 
 
 addbtn.addEventListener('click', addNewKitten);
@@ -245,20 +247,17 @@ function addNewKitten(event) {
 event.preventDefault()
 
 
-const kittenNew = {
-  image: '',
-  name: '',
-  desc: '',
-  race: '',
-};
+const valueDesc = inputDesc.value;
+const valuePhoto = inputPhoto.value;
+const valueName = inputName.value;
 
 
-if (inputDesc.value === '' || inputPhoto.value === '' || inputName.value === '') {
+if (valueDesc === '' || valuePhoto === '' || valueName === '') {
   console.log(valueDesc)
 ;  labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo";
 } else {
 
-renderKitten(kittenNew);
+renderKitten(valueDesc,valueName,valuePhoto);
 
 
 

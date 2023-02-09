@@ -128,48 +128,27 @@ if(kittenThree.includes (descSearchText)) {
 
 const buttonSearch = document.querySelector(".js-button-search");
 
-const kittenData_1 = {
-  image: 'https://dev.adalab.es/gato-siames.webp',
-  name: 'Anastacio',
-  desc: ' Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.',
-  race: 'Siamés',
-};
-
-
-const kittenData_2 = {
-  image: 'https://dev.adalab.es/sphynx-gato.webp',
-  name: 'Fiona',
-  desc: 'Produce fascinación y curiosidad. Exótico, raro, bello, extraño... hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.',
-  race: 'Sphynx',
-};
-
-const kittenData_3 = {
-  image: 'https://dev.adalab.es/maine-coon-cat.webp',
-  name: 'Cielo',
-  desc: 'Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.',
-  race: 'Maine Coon',
-};
 
 const filterKitten = (event) => {
 event.preventDefault();
 const input_search_desc = document.querySelector(".js_in_search_desc");
 const descSearchText = input_search_desc.value;
 dataList.innerHTML="";
-  if (kittenData_1.desc.includes(descSearchText)) {
-    dataList.innerHTML += kittenData_1;
+  if (kittenOneDesc.includes(descSearchText)) {
+    dataList.innerHTML += kittenOne;
     console.log("hola");
   }
-  if (kittenData_2.desc.includes(descSearchText)) {
-    dataList.innerHTML += kittenData_2;
+  if (kittenTwoDesc.includes(descSearchText)) {
+    dataList.innerHTML += kittenTwo;
   }
-  if (kittenData_3.desc.includes(descSearchText)) {
-    dataList.innerHTML += kittenData_3;
+  if (kittenThreeDesc.includes(descSearchText)) {
+    dataList.innerHTML += kittenThree;
   } 
 };
 
-renderKitten(kittenData_1);
-renderKitten(kittenData_2);
-renderKitten(kittenData_3);
+dataList.innerHTML += kittenOne;
+dataList.innerHTML += kittenTwo;
+dataList.innerHTML += kittenThree;
 
 buttonSearch.addEventListener('click', filterKitten);
 
@@ -216,7 +195,27 @@ const inputRace = document.querySelector('.js-input-race');
 const labelMessageError = document.querySelector('.js-label-error');
 
 
+const kittenData_1 = {
+  image: 'https://dev.adalab.es/gato-siames.webp',
+  name: 'Anastacio',
+  desc: ' Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.',
+  race: 'Siamés',
+};
 
+
+const kittenData_2 = {
+  image: 'https://dev.adalab.es/sphynx-gato.webp',
+  name: 'Fiona',
+  desc: 'Produce fascinación y curiosidad. Exótico, raro, bello, extraño... hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.',
+  race: 'Sphynx',
+};
+
+const kittenData_3 = {
+  image: 'ttps://dev.adalab.es/maine-coon-cat.webp',
+  name: 'Cielo',
+  desc: 'Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.',
+  race: 'Maine Coon',
+};
 
 
 function renderKitten(kittenData_1) {
@@ -236,7 +235,7 @@ function renderKitten(kittenData_1) {
 
 dataList.innerHTML += `<li>${kittenNew}</li>`;
 }
-
+renderKitten(kittenData_1);
 
 
 addbtn.addEventListener('click', addNewKitten);
@@ -245,20 +244,17 @@ function addNewKitten(event) {
 event.preventDefault()
 
 
-const kittenNew = {
-  image: '',
-  name: '',
-  desc: '',
-  race: '',
-};
+const valueDesc = inputDesc.value;
+const valuePhoto = inputPhoto.value;
+const valueName = inputName.value;
 
 
-if (inputDesc.value === '' || inputPhoto.value === '' || inputName.value === '') {
+if (valueDesc === '' || valuePhoto === '' || valueName === '') {
   console.log(valueDesc)
 ;  labelMessageError.innerHTML = "¡Uy! parece que has olvidado algo";
 } else {
 
-renderKitten(kittenNew);
+renderKitten(valueDesc,valueName,valuePhoto);
 
 
 

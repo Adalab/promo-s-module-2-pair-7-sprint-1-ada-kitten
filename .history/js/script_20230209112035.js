@@ -234,7 +234,7 @@ function renderKitten(kittenData_1) {
 </article>
 </li>`;
 
-dataList.innerHTML += `<li>${kittenNew}</li>`;
+dataList.innerHTML += `<li>${kittenData_1}</li>`;
 }
 
 
