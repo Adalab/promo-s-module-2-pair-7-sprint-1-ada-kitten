@@ -127,6 +127,7 @@ if(kittenThree.includes (descSearchText)) {
 //INFO DE GATITOS
 
 
+  
 
 const kittenData_1 = {
   image: 'https://dev.adalab.es/gato-siames.webp',
@@ -151,6 +152,9 @@ const kittenData_3 = {
 };
 
 
+const kittenDataList = [kittenData_1,kittenData_2,kittenData_3];
+
+
 
 // FUNCION FILTAR GATITOS
 
@@ -172,11 +176,12 @@ dataList.innerHTML="";
     renderKitten(kittenData_3);
   } 
 };
+
+// PINTA LOS GATITOS SI NO FILTRAS NADA
+
 renderKitten(kittenData_1);
 renderKitten(kittenData_2);
 renderKitten(kittenData_3);
-
-// PINTA LOS GATITOS SI NO FILTRAS NADA
 
 
 buttonSearch.addEventListener('click', filterKitten);
@@ -216,7 +221,7 @@ function handleClickNewCatForm(event) {
 }
 
 
-// FUNCION CREAR NUEVO GATITO EN 2 PARTES
+// FUNCION CREAR NUEVO GATITO 
 
 const addbtn = document.querySelector(".js-btn-add");
 const inputDesc = document.querySelector('.js-input-desc');
@@ -225,7 +230,17 @@ const inputName = document.querySelector('.js-input-name');
 const inputRace = document.querySelector('.js-input-race');
 const labelMessageError = document.querySelector('.js-label-error');
 
-// FUNCION CREAR GATO CON OBJETO
+// RENDER RACE 
+
+function renderRace(kitten) {
+  if (kitten.race === "") {
+   return "Uy que despiste, no sabemos su raza!"
+  } else return kitten.race;
+} 
+
+
+//  FUNCION DE CREAR GATITO
+
 
 function renderKitten(kittenData) {
   const kittenNew = `<li class="card">
@@ -236,19 +251,23 @@ function renderKitten(kittenData) {
     alt="gatito"
   />
   <h3 class="card_title">${kittenData.name}</h3>
+  <h3 class="card_race">${renderRace(kittenData)}</h3>
   <p class="card_description">
   ${kittenData.desc}
    </p>
 </article>
 </li>`;
 
-dataList.innerHTML += `<li>${kittenNew}</li>`;
+
+dataList.innerHTML += `<li>${kittenNew}</li>` ;
+
 }
 
 
 // EVENTO CUANDO HACER CLICK A AÑADIR
 
 addbtn.addEventListener('click', addNewKitten);
+
 
 function addNewKitten(event) {
 event.preventDefault()
@@ -257,6 +276,7 @@ const kittennuevo = {};
 kittennuevo.name = inputName.value;
 kittennuevo.image = inputPhoto.value;
 kittennuevo.desc = inputDesc.value;
+kittennuevo.race = inputRace.value;
 
 
 if (inputDesc.value === '' || inputPhoto.value === '' || inputName.value === '') {
