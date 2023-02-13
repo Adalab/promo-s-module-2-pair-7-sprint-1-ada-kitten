@@ -154,6 +154,12 @@ const kittenData_3 = {
 
 const kittenDataList = [kittenData_1,kittenData_2,kittenData_3];
 
+function renderKittenList(kittenDataList) {
+  for (const kitten of kittenDataList) {
+    renderKitten(kitten);
+  }
+}
+renderKittenList(kittenDataList);
 
 
 // FUNCION FILTAR GATITOS
@@ -166,22 +172,14 @@ event.preventDefault();
 const input_search_desc = document.querySelector(".js_in_search_desc");
 const descSearchText = input_search_desc.value;
 dataList.innerHTML="";
-  if (kittenData_1.desc.includes(descSearchText)) {
-    renderKitten(kittenData_1);
+for (const kitten of kittenDataList) {
+  if (kitten.desc.includes(descSearchText))  {
+    renderKitten(kitten);
   }
-  if (kittenData_2.desc.includes(descSearchText)) {
-    renderKitten(kittenData_2);
-  }
-  if (kittenData_3.desc.includes(descSearchText)) {
-    renderKitten(kittenData_3);
-  } 
-};
+}
+}
 
-// PINTA LOS GATITOS SI NO FILTRAS NADA
 
-renderKitten(kittenData_1);
-renderKitten(kittenData_2);
-renderKitten(kittenData_3);
 
 
 buttonSearch.addEventListener('click', filterKitten);
@@ -262,6 +260,9 @@ function renderKitten(kittenData) {
 dataList.innerHTML += `<li>${kittenNew}</li>` ;
 
 }
+
+
+
 
 
 // EVENTO CUANDO HACER CLICK A AÑADIR
